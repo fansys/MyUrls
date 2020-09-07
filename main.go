@@ -61,6 +61,7 @@ func main() {
 	ttl := flag.Int("ttl", defaultExpire, "短链接有效期，单位(天)，默认90天。")
 	conn := flag.String("conn", defaultRedisConfig, "Redis连接，格式: host:port")
 	passwd := flag.String("passwd", "", "Redis连接密码")
+	db := flag.Int("db", 0, "Redis数据库")
 	https := flag.Int("https", 1, "是否返回 https 短链接")
 	flag.Parse()
 
@@ -75,7 +76,7 @@ func main() {
 		maxIdleTimeout: 30,
 		host:           *conn,
 		password:       *passwd,
-		db:             0,
+		db:             *db,
 		handleTimeout:  30,
 	}
 	initRedisPool()
