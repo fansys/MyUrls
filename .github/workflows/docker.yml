@@ -46,7 +46,6 @@ jobs:
           username: '${{ secrets.ALIYUN_IMAGES_HUB_USER_NAME }}'
           password: '${{ secrets.ALIYUN_IMAGES_HUB_TOKEN }}'
           tags: 'latest,${{ env.TIMESTAMP }}'
-          aa: github.
           
       - name: Build and push Docker images shanghai
         uses: docker/build-push-action@v1
